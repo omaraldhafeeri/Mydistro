@@ -1,0 +1,92 @@
+#!/bin/bash
+
+#update and upgrade
+pacman -Syy && pacman -Syu --noconfirm
+wait
+clear
+#install yay
+pacman -S --needed base-devel git curl
+wait
+clear
+git clone https://aur.archlinux.org/yay.git
+wait 
+clear
+cd yay
+wait
+clear
+makepkg -si
+wait
+clear
+#blackarch install
+curl -O https://blackarch.org/strap.sh
+wait 
+clear
+echo bbf0a0b838aed0ec05fff2d375dd17591cbdf8aa strap.sh | sha1sum -c
+wait
+clear
+chmod +x strap.sh
+wait
+clear
+sudo ./strap.sh
+wait
+clear
+sudo pacman -Syu
+wait
+clear
+#librewolf browser install
+git clone https://aur.archlinux.org/librewolf-bin.git
+wait
+clear
+cd librewolf-bin
+wait
+clear
+makepkg -si
+wait
+clear
+#some improtant packages
+sudo pacman -S wofi kitty alacritty nano code -y
+wait
+clear
+sudo pacman -Syu 
+wait
+clear
+
+#install xfce4 and Display Manager
+#sudo pacman -Syu
+#wait
+#clear
+#sudo pacman -S xfce4 xfce4-goodies -y
+
+#install hyperland
+sudo pacman -S hyperland
+
+wait
+clear
+
+#install lightdm
+sudo pacman -S lightdm lightdm-gtk-greeter -y
+wait
+clear
+sudo systemctl enable lightdm
+wait
+clear
+
+#install intell gpu draiver
+sudo pacman -S xf86-video-intel -y
+wait
+clear
+sudo pacman -S mesa libva-intel-driver libva-utils vulkan-intel -y
+wait
+clear
+sudo pacman -S intel-media-driver -y
+wait
+clear
+
+#install rofi the app launcher
+sudo pacman -S rofi -y
+wait
+clear
+#link : https://www.youtube.com/watch?v=tD3NFVjeAts for owner of theme
+#theme for rofi link : https://github.com/sonnybox/yt-files/blob/main/SIMPLE%20LAUNCHER/config.rasi 
+#mkdir ~/.config/rofi
+#cp config.rasi ~/.config/rofi
