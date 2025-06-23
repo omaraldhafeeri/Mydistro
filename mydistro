@@ -58,7 +58,7 @@ clear
 #sudo pacman -S xfce4 xfce4-goodies -y
 
 #install hyperland
-sudo pacman -S hyprland
+sudo pacman -S hyprland -y
 
 wait
 clear
